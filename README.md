@@ -222,6 +222,14 @@ Node.js와 NestJS로 개발한 강의 평가 백엔드 API입니다. 애플리�
 
 ## 아키텍처
 
+### AWS 서비스 운영 구조도
+
+![AWS 기반 강의 평가 서비스 운영 구조](./IMAGE/aws-service-operations-architecture.png)
+
+위 구조도는 사용자 요청이 Application Load Balancer를 통해 두 대의 Backend Server EC2로 분산되는 흐름과 MySQL, Prometheus, Grafana 및 운영자의 SSH 관리 경로를 보여줍니다.
+
+### 간략 구성
+
 ```mermaid
 flowchart LR
     Client[Client] -->|HTTP/HTTPS| App[App Server EC2<br/>NestJS + PM2]
