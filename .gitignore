@@ -5,3 +5,12 @@ dist/
 *.log
 .DS_Store
 deploy/*.zip
+
+coverage/
+
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.zip

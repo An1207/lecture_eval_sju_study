@@ -2,6 +2,9 @@ import { Injectable, ServiceUnavailableException } from '@nestjs/common';
 import { InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 
+const currentWorker = '정재경';
+const currentWorkers = '여기는 단풍브랜치요';
+const something = '으아아아악';
 
 @Injectable()
 export class AppService {

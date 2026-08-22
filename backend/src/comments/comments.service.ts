@@ -22,8 +22,12 @@ export class CommentsService {
   async create(postId: number, dto: CreateCommentDto, user: User) {
     await this.postsService.findOne(postId);
 
+    const content = dto.content.startsWith('댓글 :')
+      ? dto.content
+      : `댓글 : ${dto.content}`;
+
     const comment = this.commentsRepository.create({
-      content: dto.content,
+      content: "댓글 : " + dto.content,
       postId,
       authorId: user.id,
     });

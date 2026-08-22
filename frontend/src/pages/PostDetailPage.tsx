@@ -5,6 +5,10 @@ import { api } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import type { Post } from '../types';
 
+function formatCommentContent(content: string) {
+  return content.startsWith('댓글 :') ? content : `댓글 : ${content}`;
+}
+
 export function PostDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -81,7 +85,7 @@ export function PostDetailPage() {
               <div className="comment-meta">
                 {comment.author?.name} · {new Date(comment.createdAt).toLocaleString()}
               </div>
-              <div>{comment.content}</div>
+              <div>{formatCommentContent(comment.content)}</div>
               {canDeleteComment && (
                 <Button
                   size="small"
